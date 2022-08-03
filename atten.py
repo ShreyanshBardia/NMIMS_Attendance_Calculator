@@ -1,8 +1,8 @@
 import warnings
 warnings.filterwarnings("ignore")
+import requests
+import pandas as pd
 def attendance_calculator(username,password,since='2022-07-07',till=None):
-	import requests
-	import pandas as pd
 	with requests.session() as s:
 		homepage=s.post("""https://portal.svkm.ac.in/usermgmt/login""", data ={"jspname":"nm", "username":username, "password" : password }, verify=False)
 		url=homepage.url.rstrip('homepage')
